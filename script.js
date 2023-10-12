@@ -2,6 +2,7 @@ const forms = document.querySelector(".forms")
 const pwShowHide = document.querySelectorAll(".eye-icon")
 const links = document.querySelectorAll(".link")
 
+
 pwShowHide.forEach(eyeIcon => {
     eyeIcon.addEventListener("click", () => {
         let pwFields = eyeIcon.closest("form").querySelectorAll("#password")
@@ -30,3 +31,18 @@ forms.addEventListener("submit", e => {
     e.preventDefault()
     validateInputs()
 })
+
+function validateInputs(){
+    const password1 = document.querySelector("#password").value
+    const rePassword = document.querySelector("#re-password").value
+    
+    if(password1.length < 3){
+        alert('Password must be greater than 6 charchters')
+    }
+
+    if(rePassword==password1){
+        return true
+    }else {
+        alert("password must be same")
+    }
+}
